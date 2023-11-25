@@ -21,8 +21,6 @@ module.exports = {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'linebreak-style': ['error', 'unix'],
-    quotes: ['error', 'double'],
-    semi: ['error', 'always'],
     'no-unused-vars': 0, //不能有声明后未被使用的变量或参数
     'no-delete-var': 2, // 不允许在变量上使用 delete 操作符
 
@@ -47,10 +45,11 @@ module.exports = {
     'vue/max-attributes-per-line': [
       'error',
       {
-        singleline: 4, // 每行最多三个属性
+        singleline: {
+          max: 3,
+        },
         multiline: {
-          max: 1, // 多行只能有一行属性
-          allowFirstLine: false, // 不允许第一行有属性
+          max: 1,
         },
       },
     ],

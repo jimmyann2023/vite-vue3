@@ -33,8 +33,10 @@
     "eslint-plugin-prettier": "^5.0.1",
     "eslint-plugin-vue": "^9.18.1",
     "husky": "^8.0.0",
+    "less": "^4.2.0",
     "lint-staged": "^15.1.0",
     "prettier": "^3.1.0",
+    "sass": "^1.69.5",
     "vite": "^5.0.0",
     "vite-plugin-eslint": "^1.8.1"
   },
@@ -48,8 +50,7 @@
     ],
     "*.vue": [
       "prettier --write",
-      "eslint --fix",
-      "stylelint --fix"
+      "eslint --fix"
     ]
   },
   "config": {
