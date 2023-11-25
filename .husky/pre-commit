@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+# 这里只对`git`暂存区进行代码`eslint`检验
+pnpm lint-staged
