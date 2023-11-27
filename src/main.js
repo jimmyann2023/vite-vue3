@@ -6,8 +6,18 @@ import './style.css';
 import { createApp } from 'vue';
 
 import { useVXETable } from '@/plugins/use_vxe';
+import { setupRouter } from '@/router';
 
 import App from './App.vue';
-const app = createApp(App);
-useVXETable(app);
-app.mount('#app');
+
+async function bootstrap() {
+  const app = createApp(App);
+  // 注册 vxe-table
+  useVXETable(app);
+  // 注册路由
+  await setupRouter(app);
+
+  app.mount('#app');
+}
+
+bootstrap();
