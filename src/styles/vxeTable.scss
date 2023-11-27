@@ -1,0 +1,236 @@
+@import 'vxe-table/styles/variable.scss';
+// 这部分和less全局变量同步
+$primary-color: #295bce;
+$text-color: #2b3139;
+$text-color-secondary: #858a9d;
+$disabled-color: #dadadb;
+$border-radius-base: 2px;
+$border-color-base: #e3e6ec;
+
+// 更改vxe的默认变量值
+$vxe-border-radius: $border-radius-base;
+$vxe-font-color: #2b3139;
+$vxe-primary-color: #295bce;
+$vxe-success-color: #52c41a;
+$vxe-info-color: $text-color-secondary;
+$vxe-warning-color: #faad14;
+$vxe-danger-color: #f5222d;
+$vxe-disabled-color: $disabled-color;
+
+$vxe-table-row-height-default: 32px;
+$vxe-table-border-color: $border-color-base;
+$vxe-table-header-font-color: $text-color-secondary;
+$vxe-table-header-font-weight: normal;
+$vxe-table-header-background-color: #edeff8;
+$vxe-table-row-hover-background-color: #f0f7ff;
+$vxe-loading-background-color: rgba(255, 255, 255, 0.5);
+
+// 按需引入模块样式(必须放在设置变量代码后面)
+@import 'vxe-table/styles/table.scss';
+@import 'vxe-table/styles/grid.scss';
+@import 'vxe-table/styles/header.scss';
+
+// 表格
+.vxe-table {
+  z-index: 0;
+  .vxe-header--row {
+    .vxe-header--column {
+      padding: 8px 0 !important;
+      .vxe-cell {
+        padding: 0;
+      }
+    }
+  }
+  .vxe-body--row {
+    .vxe-body--column {
+      // 编辑图标 | 删除图标
+      .operate {
+        .edit-btn {
+          border-right: 1px solid #e3e6ec;
+          padding-right: 8px;
+          margin-right: 8px;
+          vertical-align: middle;
+          color: #295bce;
+          cursor: pointer;
+        }
+        .delete-btn {
+          vertical-align: middle;
+          cursor: pointer;
+          display: inline-block;
+          width: 16px;
+          height: 16px;
+          background: url(~@/assets/icons/sl-delete-show.png);
+        }
+        .dot {
+          width: 3px;
+          height: 3px;
+          background: #858a9d;
+          border-radius: 50%;
+          margin-right: 4px;
+          display: inline-block;
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+}
+
+.vxe-table--render-default .vxe-header--column.col--ellipsis:not(.col--actived) > .vxe-cell,
+.vxe-table--render-default .vxe-body--column.col--ellipsis:not(.col--actived) > .vxe-cell,
+.vxe-table--render-default .vxe-footer--column.col--ellipsis:not(.col--actived) > .vxe-cell {
+  & > div {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+// 表格复选框样式
+.vxe-table--render-default .vxe-cell--checkbox .vxe-checkbox--icon:before {
+  border: 1px solid #b0b6c8;
+}
+
+// 高亮勾选行
+.vxe-table--render-default .vxe-body--row.row--checked {
+  background-color: #fafafa;
+}
+// 勾选行 :hover 时样式
+.vxe-table--render-default .vxe-body--row.row--hover.row--checked {
+  background-color: #f0f7ff;
+}
+
+// 设置行高，不然有input等控件时，高度太小
+.table-40 .vxe-table--render-default .vxe-body--column.col--ellipsis {
+  height: 40px;
+}
+
+// 取消展开行的padding
+.vxe-table--render-default {
+  .vxe-body--expanded-cell {
+    padding: 0;
+    margin-top: -1px;
+    margin-bottom: -1px;
+  }
+}
+
+// 展开的表格样式（第2层）
+.expand-table {
+  .vxe-table--header-wrapper th {
+    background-color: #dee8ff;
+  }
+
+  .vxe-body--row td {
+    background-color: #f6f8fc;
+    background-image: linear-gradient(transparent, transparent), linear-gradient(#e3e6ec, #e3e6ec);
+  }
+
+  .vxe-table--fixed-right-wrapper .vxe-table--body-wrapper.fixed-right--wrapper,
+  .vxe-table--fixed-left-wrapper .vxe-table--body-wrapper.fixed-left--wrapper {
+    background: transparent;
+
+    .vxe-body--row td {
+      background-color: #f6f8fc;
+      background-image: linear-gradient(#e3e6ec, #e3e6ec), linear-gradient(#e3e6ec, #e3e6ec);
+    }
+  }
+
+  .vxe-table--fixed-left-wrapper .vxe-table--body-wrapper.fixed-left--wrapper {
+    .vxe-body--row td {
+      background-position:
+        right top,
+        right bottom;
+    }
+  }
+}
+// 再展开的表格样式（第3层）
+.expand-table2 {
+  .vxe-table--header-wrapper th {
+    background-color: #e8eaef;
+  }
+
+  .vxe-body--row td {
+    background-color: #f8f8f8;
+    background-image: linear-gradient(transparent, transparent), linear-gradient(#e3e6ec, #e3e6ec);
+  }
+}
+
+// 展开图标
+.vxe-table--expand-btn.vxe-icon--plus::before,
+.vxe-table--expand-btn.vxe-icon--minus::before {
+  border: 1px solid #c5c9d5;
+  font-weight: bold;
+  color: $text-color;
+  border-radius: 2px;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  line-height: 14px;
+  left: 0;
+  font-size: 0.8em;
+}
+
+// td上下间隙，表头无颜色的表格 搭配border="none"使用
+.space-table {
+  // 表头文字加粗
+  &.bold-header {
+    .vxe-header--row .vxe-header--column {
+      font-weight: bold;
+    }
+  }
+  .vxe-header--row .vxe-header--column {
+    color: #2b3139;
+    padding: 0 8px 2px 8px !important;
+    .vxe-resizable::before {
+      background: transparent;
+    }
+  }
+
+  .vxe-table--body {
+    border-spacing: 0 8px;
+
+    .vxe-body--row {
+      height: 40px;
+      background: #fafafa;
+      background-image: linear-gradient(#e3e6ec, #e3e6ec), linear-gradient(#e3e6ec, #e3e6ec),
+        linear-gradient(#e3e6ec, #e3e6ec), linear-gradient(#e3e6ec, #e3e6ec);
+      background-repeat: no-repeat;
+      background-size:
+        100% 1px,
+        100% 1px,
+        1px 100%,
+        1px 100%;
+      background-position:
+        right bottom,
+        right top,
+        left bottom;
+    }
+  }
+}
+
+// loading样式
+.vxe-loading .vxe-loading--spinner:after,
+.vxe-loading .vxe-loading--spinner:before {
+  content: none;
+}
+
+.vxe-loading .vxe-loading--spinner {
+  border-radius: 50%;
+  width: 9px;
+  height: 9px;
+  animation: loadingCircle 1s infinite linear;
+  transform: translateZ(0);
+  box-shadow:
+    0 -9px 0 0 $primary-color,
+    9px 0 0 0 rgba(41, 91, 206, 0.8),
+    0 9px 0 0 rgba(41, 91, 206, 0.6),
+    -9px 0 0 0 rgba(41, 91, 206, 0.4);
+}
+
+@keyframes loadingCircle {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -5,6 +5,7 @@ import UnoCSS from 'unocss/vite';
 import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers';
 import Components from 'unplugin-vue-components/vite';
 import { defineConfig, loadEnv } from 'vite';
+import { createStyleImportPlugin, VxeTableResolve } from 'vite-plugin-style-import';
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
 
 // https://vitejs.dev/config/
@@ -28,12 +29,17 @@ export default defineConfig(({ command, mode }) => {
         symbolId: 'icon-[dir]-[name]',
         customDomId: '__svg__icons__dom__',
       }),
+      // antd 按需加载
       Components({
         resolvers: [
           AntDesignVueResolver({
             importStyle: false, // css in js
           }),
         ],
+      }),
+      // vxe-table 按需加载
+      createStyleImportPlugin({
+        resolves: [VxeTableResolve()],
       }),
     ],
     resolve: {
@@ -42,7 +48,7 @@ export default defineConfig(({ command, mode }) => {
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: "@import '/src/styles/index.scss';", // 引入全局变量文件
+          additionalData: "@import '/src/styles/vxeTable.scss';", // 引入全局变量文件
         },
         less: {
           math: 'parens-division', // 指定传递给 less 预处理器的选项

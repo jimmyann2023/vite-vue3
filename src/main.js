@@ -5,6 +5,9 @@ import './style.css';
 
 import { createApp } from 'vue';
 
-import App from './App.vue';
+import { useVXETable } from '@/plugins/use_vxe';
 
-createApp(App).mount('#app');
+import App from './App.vue';
+const app = createApp(App);
+useVXETable(app);
+app.mount('#app');
