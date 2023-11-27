@@ -15,7 +15,7 @@ module.exports = {
       tsx: true,
     },
   },
-  plugins: ['vue'],
+  plugins: ['vue', 'simple-import-sort'],
   rules: {
     // off or 0 - 关闭(禁用)规则
     // warn or 1 - 将规则视为一个警告（并不会导致检查不通过）
@@ -58,5 +58,9 @@ module.exports = {
         },
       },
     ],
+    // import 排序
+
+    'simple-import-sort/imports': 'error',
+    'simple-import-sort/exports': 'error',
   },
 };
