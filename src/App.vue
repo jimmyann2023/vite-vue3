@@ -1,10 +1,13 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue';
+import JsxButton from './components/JsxButton';
+import SvgIcon from './components/SvgIcon.vue';
 console.log('app.vue');
 </script>
 
 <template>
   <div class="flex-center">
+    <JsxButton></JsxButton>
     <a href="https://vitejs.dev" target="_blank">
       <img src="/vite.svg" class="logo" alt="Vite logo" />
     </a>
@@ -13,6 +16,7 @@ console.log('app.vue');
     </a>
   </div>
   <HelloWorld msg="Vite + Vue" />
+  <SvgIcon name="vue" />
 </template>
 
 <style scoped lang="scss">

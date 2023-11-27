@@ -9,6 +9,11 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
+    jsxPragma: 'React',
+    ecmaFeatures: {
+      jsx: true,
+      tsx: true,
+    },
   },
   plugins: ['vue'],
   rules: {
