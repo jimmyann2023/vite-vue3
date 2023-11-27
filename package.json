@@ -14,11 +14,14 @@
     "lint:stylelint": "stylelint --cache --fix \"**/*.{vue,less,postcss,css,scss}\"",
     "lint:lint-staged": "lint-staged",
     "format": "prettier --write .",
+    "git:add": "git add . && git config --global core.autocrlf true",
     "commit": "git-cz"
   },
   "dependencies": {
     "@ant-design/icons-vue": "^7.0.1",
     "ant-design-vue": "4.x",
+    "pinia": "^2.1.7",
+    "pinia-plugin-persistedstate": "^3.2.0",
     "vue": "^3.3.8",
     "vue-router": "^4.2.5",
     "vxe-table": "^4.5.13",
