@@ -1,5 +1,6 @@
 import JsxButton from '@/components/JsxButton';
 import { LAYOUT } from '@/router/constant';
+import { supplyChainRoute } from '@/router/module/supplyChain';
 import About from '@/views/About.vue';
 import Home from '@/views/Home.vue';
 import SvgDemo from '@/views/SvgDemo.vue';
@@ -8,7 +9,7 @@ import VxeTable from '@/views/vxeTableBasic.vue';
 export const basicRoute = [
   {
     path: '/',
-    name: 'PageLayout',
+    name: 'Home',
     component: LAYOUT,
     redirect: '/index',
     meta: {},
@@ -20,4 +21,5 @@ export const basicRoute = [
       { path: 'vxe-table', name: 'VxeTable', component: VxeTable },
     ],
   },
+  ...supplyChainRoute,
 ];

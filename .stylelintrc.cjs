@@ -1,3 +1,4 @@
+// https://blog.csdn.net/m0_60273757/article/details/125762025
 module.exports = {
   extends: [
     'stylelint-config-standard',
